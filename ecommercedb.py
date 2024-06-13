@@ -5,7 +5,6 @@ try:
     connection = mysql.connector.connect(
         host = "localhost",
         user = "root",
-        # Change to your MySQL database password.
         password = "password1.",
         database = "ecommerce"
     )
@@ -165,7 +164,7 @@ def get_user_information(user_id):
             IN p_user_id INT
         )
         BEGIN
-            SELECT user_id, fullname, email, location_id, role_id, phone_number, date_of_birth, username
+            SELECT *
             FROM User
             WHERE user_id = p_user_id;
         END
@@ -215,6 +214,7 @@ def get_product_information(product_id):
 
 def main_menu():
     current_product_id = 11
+    print("Welcome to Swift Store!")
     while True:
         print("\nMain Menu:")
         print("1. List Inventory Products")
